@@ -58,6 +58,8 @@
 
 The previous changelog can be found [here](docs/changlelog.md).
 
+- __[2025.12.22]__: Updated to work with torch 2.9 and cu130. 
+
 - __[2023.06.12]__: Added more new features in WebUI extension, see the discussion [here](https://github.com/OpenTalker/SadTalker/discussions/386).
 
 - __[2023.06.05]__: Released a new 512x512px (beta) face model. Fixed some bugs and improve the performance.
@@ -100,14 +102,17 @@ Community tutorials: [中文Windows教程 (Chinese Windows tutorial)](https://ww
 
   conda activate sadtalker
 
-  pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+  pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --extra-index-url https://download.pytorch.org/whl/cu130
 
   conda install ffmpeg
 
   pip install -r requirements.txt
 
   ### Coqui TTS is optional for gradio demo. 
-  ### pip install TTS
+  ### pip install coqui-tts
+  
+  ### There is a problem with basicsr and new versions of torch. 
+  ### You need to touch .../site-packages/basicsr/data/degradations.py and replace torchvision.transforms.functional_tensor by torchvision.transforms.functional or install basicsr-fixed 'pip install basicsr-fixed'
 
   ```  
 ### Windows
